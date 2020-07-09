@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div id="conteudo"></div>
+
+    <button onclick="postDatabase()">Post</button>
+
+    <script>
+        function postDatabase() {
+           
+            const request = new Request("localhost:3000/api/", {
+                method: 'POST',
+                body: JSON.stringify({
+                "nomeCliente": "Markus",
+                "dataEntrega": "09/07/2020",
+                "pontoPartida": "Caju",
+                "pontoDestino": "Centro"
+            }),
+                headers: new Headers({ 'Content-Type': 'application/json' })
+            });
+
+            fetch(request).then(res => res.json()).then(res => console.log(res));
+        }
+
+
+        //get
+        //function getDatabase(){
+        // const url = 'http://www.kappamaki.com.br/api/api/read.php';
+
+        // let response = await fetch(url);
+
+        // if (response.ok) { // if HTTP-status is 200-299
+        //     get the response body (the method explained below)
+        //     let json = await response.json();
+        //     alert(json)
+        // } else {
+        //     alert("HTTP-Error: " + response.status)
+        // }
+
+        //function oi() {
+            // fetch('https://api.github.com/users/markuslima')
+            //     .then(function (response) {
+            //         response.json().then(function (data) {
+            //             console.log(data);
+            //             document.getElementById('conteudo').innerHTML = data;
+            //         });
+
+            //     }).catch(function (err) {
+            //         console.log('Fetch Error :-S', err);
+            //     });
+            // fetch('http://www.kappamaki.com.br/api/api/read.php', { mode: 'cors' })
+            //     .then(function (response) {
+            //         return response.json();
+            //     })
+            //     .then(function (text) {
+            //         console.log('Request successful', text);
+            //     })
+            //     .catch(function (error) {
+            //         log('Request failed', error)
+            //     });
+       // }
+        //oi();
+
+
+        //}
+
+        //Update
+        // function upDatabase(){
+        // const url = 'http://www.kappamaki.com.br/api/api/update.php';
+
+        // const user = {
+        //     "id": "1",
+        //     "name": "John Down",
+        //     "email": "johndoe@gmail.com",
+        //     "age": "30",
+        //     "designation": "Data Scientist",
+        //     "created": "2020-07-02 11:27:30"
+        // };
+
+        // const request = new Request(url, {
+        //     method: 'POST',
+        //     body: JSON.stringify(user),
+        //     headers: new Headers({ 'Content-Type': 'application/json' })
+        // });
+
+        // fetch(request).then(res => res.json()).then(res => console.log(res));
+        // }
+
+        //Delete
+        // function upDatabase() {
+        //     const url = 'http://www.kappamaki.com.br/api/api/delete.php';
+
+        //     const user = {
+        //         "id": "21",
+        //     };
+
+        //     const request = new Request(url, {
+        //         method: 'POST',
+        //         body: JSON.stringify(user),
+        //         headers: new Headers({ 'Content-Type': 'application/json' })
+        //     });
+
+        //     fetch(request).then(res => res.json()).then(res => console.log(res));
+        // }
+
+    </script>
+</body>
+
+</html>
