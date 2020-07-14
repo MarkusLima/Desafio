@@ -3,14 +3,34 @@ const router = express.Router();
 const Entregas = require("../model/entregas");
 
 //Primeira rota
-router.get("", (request, response)=>{
+router.get("", (request, response) => {
     response.json({
         menssagem: "Benvindo(a)\n",
-        GetAll: "localhost:3000/api",
-        GetOneID: "localhost:3000/api/:id",
-        Post: "localhost:3000/api",
-        Patch: "localhost:3000/api",
-        Delete: "localhost:3000/api/:id"
+        GetAll: {
+            "End Point": "https://bibliotheque-livre-85491.herokuapp.com/api",
+            "Metodo Get": "Sem Corpo na requisição"
+        },
+        GetOneID: {
+            "End Point": "https://bibliotheque-livre-85491.herokuapp.com/api/:id",
+            "Metodo Get": "No corpo da requisição precisa de um ID válido",
+            "body": "{'id': 'valor da id'}"
+        },
+        Post: {
+            "End Point": "https://bibliotheque-livre-85491.herokuapp.com/api",
+            "Metodo Post": "No corpo da requisição precisa de alguns valores",
+            "body": "{'nomeCliente': 'John','dataEntrega': '09/07/2020','pontoPartida': 'Centro', 'pontoDestino': 'Pilares'}"
+        },
+        Patch: {
+            "End Point": "https://bibliotheque-livre-85491.herokuapp.com/api",
+            "Metodo Patch": "No cabeçalho da URL precisa de ID válido e no corpo da requisição precisa de alguns valores para atualizar",
+            "body": "{'nomeCliente': 'John','dataEntrega': '14/07/2020','pontoPartida': 'Centro', 'pontoDestino': 'Pilares'}"
+        },
+
+        Delete: {
+            "End Point": "https://bibliotheque-livre-85491.herokuapp.com/api/:id",
+            "Metodo Delete": "No corpo da requisição precisa de um ID válido",
+            "body": "{'id': 'valor da id'}"
+        }
     })
 })
 
