@@ -32,7 +32,7 @@ export default function App() {
       </div>
 
       <MapLoader
-        googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyA02nr5HVKNkp-jbvys0C06S_jUEY2N1uY&v=3.exp&libraries=geometry,drawing,places"
+        googleMapURL="https://maps.googleapis.com/maps/api/js?key=""&libraries=geometry,drawing,places"
         loadingElement={<div style={{ height: `100%` }} />}
       />
     </div>
