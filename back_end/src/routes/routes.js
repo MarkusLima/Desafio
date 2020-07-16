@@ -18,12 +18,12 @@ router.get("", (request, response) => {
         Post: {
             "End Point": "https://bibliotheque-livre-85491.herokuapp.com/api",
             "Metodo Post": "No corpo da requisição precisa de alguns valores",
-            "body": "{'nomeCliente': 'John','dataEntrega': '09/07/2020','pontoPartida': 'Centro', 'pontoDestino': 'Pilares'}"
+            "body": "{'nomeCliente': 'nome', 'dataEntrega': 'dateEntrega','pontoPartida': {'endereco': 'enderecoPartida', 'lat': 'coordinates.lat','lng': 'coordinates.lng'},'pontoDestino': {'endereco': 'enderecoDestino','lat': 'coordinatesDest.lat','lng': 'coordinatesDest.lng'},'statusEntrega': 'fechado'}"
         },
         Patch: {
             "End Point": "https://bibliotheque-livre-85491.herokuapp.com/api",
             "Metodo Patch": "No cabeçalho da URL precisa de ID válido e no corpo da requisição precisa de alguns valores para atualizar",
-            "body": "{'nomeCliente': 'John','dataEntrega': '14/07/2020','pontoPartida': 'Centro', 'pontoDestino': 'Pilares'}"
+            "body": "{'nomeCliente': 'nome', 'dataEntrega': 'dateEntrega','pontoPartida': {'endereco': 'enderecoPartida', 'lat': 'coordinates.lat','lng': 'coordinates.lng'},'pontoDestino': {'endereco': 'enderecoDestino','lat': 'coordinatesDest.lat','lng': 'coordinatesDest.lng'},'statusEntrega': 'fechado'}"
         },
 
         Delete: {

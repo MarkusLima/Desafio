@@ -1,41 +1,40 @@
-import React from "react";
-import PlacesAutocomplete, { geocodeByAddress, getLatLng} from "react-places-autocomplete";
+import React from 'react';
+import { Button } from 'react-bootstrap';
+import { withScriptjs } from "react-google-maps";
+import Map from './Map';
 
 export default function App() {
-  const [address, setAddress] = React.useState("");
-  const [coordinates, setCoordinates] = React.useState({lat: null, lng: null});
+  const [info] = React.useState({
+    nomeCliente: localStorage.getItem("nomeCliente"),
+    enderecoPartida: localStorage.getItem("enderecoPartida"),
+    enderecoDestino: localStorage.getItem("enderecoDestino"),
+    dataEntrega: localStorage.getItem("dataEntrega"),
+    statusEntrega: localStorage.getItem("statusEntrega"),
+    dataCadastro: localStorage.getItem("dataCadastro"),
+    pontoPartidalat: localStorage.getItem("pontoPartidalat"),
+    pontoPartidalng: localStorage.getItem("pontoPartidalng"),
+    pontoDestinolat: localStorage.getItem("pontoDestinolat"),
+    pontoDestinolng: localStorage.getItem("pontoDestinolng"),
+  });
 
-  const handleSelect = async value => {
-    const results = await geocodeByAddress(value);
-    const latLng = await getLatLng(results[0]);
-    setAddress(value);
-    setCoordinates(latLng);
-  };
+  const MapLoader = withScriptjs(Map);
 
   return (
     <div>
-      <PlacesAutocomplete value={address} onChange={setAddress} onSelect={handleSelect}>
-        {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
-          <div>
-            <p>Latitude: {coordinates.lat}</p>
-            <p>Longitude: {coordinates.lng}</p>
+      <div className="bg-danger text-center">
+        <div>
+          Nome: <span className="text-white">{info.nomeCliente}</span><br />
+            Inicio: <span className="text-white">{info.enderecoPartida}-A-</span><br />
+            Destino: <span className="text-white">{info.enderecoDestino}-B-</span><br />
+            Data da entregas: <span className="text-white">{info.dataEntrega}</span><br />
+        </div>
+        <Button type="submit" variant="success" onClick={() => window.close()}>Ok</Button>
+      </div>
 
-            <input {...getInputProps({ placeholder: "Type address" })} />
-
-            <div>
-              {loading ? <div>Loading...</div> : null}
-
-              {suggestions.map(suggestion => {
-                return (
-                  <div {...getSuggestionItemProps(suggestion)}>
-                    {suggestion.description}
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        )}
-      </PlacesAutocomplete>
+      <MapLoader
+        googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyA02nr5HVKNkp-jbvys0C06S_jUEY2N1uY&v=3.exp&libraries=geometry,drawing,places"
+        loadingElement={<div style={{ height: `100%` }} />}
+      />
     </div>
   );
 }

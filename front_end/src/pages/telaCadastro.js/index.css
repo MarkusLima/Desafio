@@ -1,4 +1,5 @@
-.leaflet-container{
-    width: 100%;
-    height: 50%;
+.cadastro-container{
+    background-image: url("https://miro.medium.com/max/4064/1*qYUvh-EtES8dtgKiBRiLsA.png");
+    background-color: #252525;
+    background-size: cover;
 }
