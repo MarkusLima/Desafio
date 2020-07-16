@@ -15,7 +15,7 @@ cors
 
 
 Desc: Uso banco de dados Disponivel: https://cloud.mongodb.com/
-senha: adm@Mk
+
 
 Rotas de Acesso:
 
