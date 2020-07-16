@@ -5,7 +5,7 @@ const router = require("./routes/routes");
 const cors = require("cors");
 var app = Express();
 
-mongoose.connect("mongodb+srv://adm:adm@Mk@cluster0.2oaec.mongodb.net/geolocations?retryWrites=true&w=majority", {
+mongoose.connect("mongodb+srv://user:senha@cluster0.2oaec.mongodb.net/geolocations?retryWrites=true&w=majority", {
     useNewUrlParser: true, useUnifiedTopology: true
 }, () => console.log("Connect on database"));
 
